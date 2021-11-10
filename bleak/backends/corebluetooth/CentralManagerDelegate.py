@@ -116,7 +116,7 @@ class CentralManagerDelegate(NSObject):
             )
 
         self.central_manager.scanForPeripheralsWithServices_options_(
-            service_uuids, {CBCentralManagerScanOptionAllowDuplicatesKey: None}
+            service_uuids,  NSDictionary.dictionaryWithDictionary_({CBCentralManagerScanOptionAllowDuplicatesKey: None}) 
         )
 
         # The `isScanning` property was added in macOS 10.13, so before that
