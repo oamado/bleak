@@ -14,6 +14,7 @@ from typing import Any, Callable, Dict, Optional
 import objc
 from CoreBluetooth import (
     CBCentralManager,
+    CBCentralManagerScanOptionAllowDuplicatesKey,
     CBManagerStatePoweredOff,
     CBManagerStatePoweredOn,
     CBManagerStateResetting,
@@ -115,7 +116,7 @@ class CentralManagerDelegate(NSObject):
             )
 
         self.central_manager.scanForPeripheralsWithServices_options_(
-            service_uuids, None
+            service_uuids, {CBCentralManagerScanOptionAllowDuplicatesKey: None}
         )
 
         # The `isScanning` property was added in macOS 10.13, so before that
